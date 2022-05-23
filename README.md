@@ -2,6 +2,8 @@
 
 This is a *preview version* of Dorado, a Libtorch Basecaller for Oxford Nanopore Reads. This software is in alpha preview stage and being released for early evaluation. It is subject to change. If you encounter any problems building or running Dorado please [report an issue](https://github.com/nanoporetech/dorado/).
 
+This repository contains additional modifications by David Eccles, mostly in an attempt to speed up the program.
+
 ## Downloading Dorado
 We will be publishing pre-built releases in the next few days.
 
@@ -14,6 +16,10 @@ $ dorado basecaller dna_r9.4.1_e8_hac@v3.3 fast5_pass/ > calls.sam
 
 ## Developer quickstart
 
+### Get CUDA toolkit
+
+Download the CUDA toolkit from [NVIDIA](https://developer.nvidia.com/cuda-downloads)
+
 ### Get Linux dependencies
 
 ```
@@ -22,7 +28,7 @@ apt-get update && apt-get install -y --no-install-recommends libhdf5-dev libssl-
 
 ### Clone and build
 ```
-$ git clone git@github.com:nanoporetech/dorado.git
+$ git clone git@github.com:gringer/dorado.git
 $ cd dorado
 $ cmake -S . -B cmake-build
 $ cmake --build cmake-build --config Release -- -j
