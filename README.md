@@ -16,9 +16,9 @@ $ dorado basecaller dna_r9.4.1_e8_hac@v3.3 fast5_pass/ > calls.sam
 
 ## Developer quickstart
 
-### Get CUDA toolkit
+### CUDA
 
-Download the CUDA toolkit from [NVIDIA](https://developer.nvidia.com/cuda-downloads)
+Dorado requires CUDA 11.3 on Linux platforms. See the file `DEV.md` for more details.
 
 ### Get Linux dependencies
 
