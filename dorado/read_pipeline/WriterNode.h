@@ -1,15 +1,16 @@
 #pragma once
 
+#include "ReadPipeline.h"
+
 #include <string>
 #include <vector>
-
-#include "ReadPipeline.h"
 
 class WriterNode : public ReadSink {
 public:
     // Writer has no sink - reads go to output
-    WriterNode(std::vector<std::string> args, bool emit_fastq = false, size_t max_reads=1000);
+    WriterNode(std::vector<std::string> args, bool emit_fastq = false, size_t max_reads = 1000);
     ~WriterNode();
+
 private:
     void worker_thread();
 
@@ -17,7 +18,7 @@ private:
     // Emit Fastq if true
     bool m_emit_fastq;
     // Total number of raw samples from the read WriterNode has processed. Used for performance benchmarking and debugging.
-    int m_num_samples_processed;
+    int64_t m_num_samples_processed;
     //Total number of reads WriterNode has processed
     int m_num_reads_processed;
     // Time when Node is initialised.

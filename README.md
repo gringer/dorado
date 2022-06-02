@@ -31,7 +31,7 @@ apt-get update && apt-get install -y --no-install-recommends libhdf5-dev libssl-
 $ git clone git@github.com:gringer/dorado.git
 $ cd dorado
 $ cmake -S . -B cmake-build
-$ cmake --build cmake-build --config Release -- -j
+$ cmake --build cmake-build --config Release -j
 $ ctest --test-dir cmake-build
 ```
 
@@ -49,6 +49,19 @@ Other Platforms may work, if you encounter problems with running on your system 
 
 ## Known limitations
 
-* Multi-GPU support is limited and likely to work.
+* Multi-GPU support is limited and likely not to work.
 * GPU memory utilisation on Nvidia devices is high (compared to [Bonito](https://github.com/nanoporetech/bonito)). This issue is currently being investigated and resolved.
 * Support for M1 GPUs is should be considered experimental.
+
+### Pre commit
+
+The project uses pre-commit to ensure code is consistently formatted, you can set this up using pip:
+
+```bash
+> pip install pre-commit
+# Install pre-commit hooks in your dorado repo:
+> cd dorado
+> pre-commit install
+# Run hooks on all files:
+> pre-commit run --all-files
+```
