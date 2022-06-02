@@ -7,10 +7,10 @@ wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/
 sh cuda_11.3.0_465.19.01_linux.run --silent --toolkit --toolkitpath=${PWD}/cuda11.3
 ```
 
-In this case, cmake should be invoked with `CUDA_TOOLKIT_ROOT_DIR` in order to tell the build process where to find CUDA:
+In this case, cmake should be invoked with `CUDA_TOOLKIT_ROOT_DIR` and `CUDAToolkit_ROOT` in order to tell the build process where to find CUDA:
 
 ```
-cmake -DCUDA_TOOLKIT_ROOT_DIR=~/dorado_deps/cuda11.3 -S . -B cmake-build 
+cmake -DCUDAToolkit_ROOT=~/dorado_deps/cuda11.3 -DCUDA_TOOLKIT_ROOT_DIR=~/dorado_deps/cuda11.3 -S . -B cmake-build
 ```
 
 Note that a suitable NVIDIA driver will be required in order to run dorado. Also note that the downloaded version of CUDA 11.3 should appear in the path before any other installed version, so that CMake selects the correct version of nvcc. All other dependencies will be fetched automatically by the cmake build process.
